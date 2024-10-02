@@ -1,0 +1,106 @@
+﻿Instalando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+No se pudieron encontrar instaladores públicos con el atributo RunInstallerAttribute.Yes en el ensamblado C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe.
+Confirmando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+No se pudieron encontrar instaladores públicos con el atributo RunInstallerAttribute.Yes en el ensamblado C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe.
+Quitar el archivo InstallState porque no hay instaladores.
+Instalando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando el servicio PolizasService...
+El servicio PolizasService se ha instalado correctamente.
+Creando el origen de EventLog PolizasService en el registro Application...
+Confirmando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando el servicio PolizasService...
+El servicio PolizasService se ha instalado correctamente.
+Creando el origen de EventLog PolizasService en el registro Application...
+Confirmando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando el servicio Service1...
+El servicio Service1 se ha instalado correctamente.
+Creando el origen de EventLog Service1 en el registro Application...
+Confirmando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando el servicio PolizasService...
+El servicio PolizasService se ha instalado correctamente.
+Creando el origen de EventLog PolizasService en el registro Application...
+Confirmando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Deshaciendo ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando el servicio PolizasService...
+El servicio PolizasService se ha instalado correctamente.
+Creando el origen de EventLog PolizasService en el registro Application...
+Confirmando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe
+Instalando el servicio PolizasService...
+El servicio PolizasService se ha instalado correctamente.
+Creando el origen de EventLog PolizasService en el registro Application...
+Confirmando ensamblado 'C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe'.
+Los parámetros afectados son:
+   logtoconsole = 
+   logfile = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.InstallLog
+   assemblypath = C:\Users\pacor\source\repos\PolizasService\PolizasService\bin\Debug\PolizasService.exe

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServicioLecturaAPIPrem", "PolizasService\ServicioLecturaAPIPrem.csproj", "{551EA9C8-FBFE-47D7-9723-CA0C520A923E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfiguracionLecturaXML", "PolizasServiceConfiguracion\ConfiguracionLecturaXML.csproj", "{079D4090-FB32-4FC2-B567-42B33E87F242}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{F3D60206-589B-4E13-BF3A-679C7CDA2799}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{551EA9C8-FBFE-47D7-9723-CA0C520A923E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551EA9C8-FBFE-47D7-9723-CA0C520A923E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551EA9C8-FBFE-47D7-9723-CA0C520A923E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{551EA9C8-FBFE-47D7-9723-CA0C520A923E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{079D4090-FB32-4FC2-B567-42B33E87F242}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{079D4090-FB32-4FC2-B567-42B33E87F242}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{079D4090-FB32-4FC2-B567-42B33E87F242}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{079D4090-FB32-4FC2-B567-42B33E87F242}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3D60206-589B-4E13-BF3A-679C7CDA2799}.Debug|Any CPU.ActiveCfg = Debug
+		{F3D60206-589B-4E13-BF3A-679C7CDA2799}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F23F7320-5CD9-46DB-A869-A0616A016651}
+	EndGlobalSection
+EndGlobal

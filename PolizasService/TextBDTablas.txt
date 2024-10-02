@@ -1,0 +1,30 @@
+﻿CREATE TABLE ConfiguracionXML (
+    Id INT PRIMARY KEY IDENTITY(1,1), -- Llave primaria autoincremental
+    Alias NVARCHAR(60) NOT NULL,      -- Alias con tipo de dato NVARCHAR(60)
+    ConceptoPremium NVARCHAR(MAX) NOT NULL, -- ConceptoPremium con tipo de dato NVARCHAR sin límite definido
+    DireccionArchivo NVARCHAR(100) NOT NULL, -- Dirección del archivo con tipo NVARCHAR(100)
+    TipoDocumentoXML NVARCHAR(MAX) NOT NULL, -- TipoDocumentoXML con tipo de dato NVARCHAR sin límite definido
+    FechaCreacion DATETIME DEFAULT GETDATE(), -- FechaCreacion con valor por defecto en la fecha actual
+    Bandera BIT NOT NULL -- Bandera con valores 0 o 1 (se usa tipo BIT para manejar 0 y 1)
+);
+
+
+------------------
+
+CREATE TABLE Documentos (
+    Id INT IDENTITY(1,1) PRIMARY KEY,              -- Campo incremental automático
+    fechaCreacion DATETIME DEFAULT GETDATE(),      -- Campo con fecha automática asignada por SQL
+    tipoDocumento NVARCHAR(100) NOT NULL           -- Campo de texto con un máximo de 100 caracteres
+);
+
+
+INSERT INTO Documentos (tipoDocumento)
+VALUES
+('Factura'),
+('Pagos'),
+('NotaCredito'),
+('NotaCargo');
+
+
+INSERT INTO ConfiguracionXML (Alias, ConceptoPremium, DireccionArchivo, TipoDocumentoXML, Bandera, Timbrado ) VALUES  ('Alias1', 'Premium Concept 1', 'C:\\Archivos\\Archivo1.xml', 'DocumentoTipo1', 1, 0)
+
