@@ -1,0 +1,86 @@
+{
+    "UserSDK": "Supervisor",
+    "PassSDK": "",
+    "Instancia": "DEVHUSK\\SQL22",
+    "UserSQL": "sa",
+    "PassSQL": "root",
+    "EmpresaDB": "adMotores_Franklin",
+    "RutaEmpresa": "C:\\Compac\\Empresas\\adMotores_Franklin",
+    "PassCSD": "12345678a",
+    "Documentos": [
+        {
+            "Id": 0,
+            "Folio": "125471",
+            "Serie": "F",
+            "NumMoneda": "2",
+            "TipoCambio": "19.330000",
+            "Referencia": "",
+            "DescuentoDoc1": "0",
+            "Importe": "478.19",
+            "CodConcepto": "5",
+            "Fecha": "2024-08-08T17:25:27",
+            "CodigoCteProv": "MECM890831375",
+            "Observaciones": "",
+            "TimbrarCFDI": "True",
+            "LugarExp": "64560",
+            "FormaPago": "99",
+            "CondicionPago": "Cash In Advance",
+            "UsoCFDI": "G01",
+            "MetodoPago": "2",
+            "FileName": "C:\\Desarrollo\\Mfranklin\\XML\\Facturas\\INV_125410_06400_080824_192527.xml",
+            "RegimenFiscal": "612",
+            "Procesado": "",
+            "Movimientos": [
+                {
+                    "Id": 0,
+                    "Consecutivo": "",
+                    "Unidades": "1.00",
+                    "Precio": "412.2300",
+                    "Costo": "412.23",
+                    "CodProdSer": "93822535",
+                    "CodAlmacen": "1",
+                    "Referencia": "",
+                    "CtextoExtra1": ""
+                }
+            ],
+            "docRelacionados": []
+        },
+        {
+            "Id": 0,
+            "Folio": "125472",
+            "Serie": "F",
+            "NumMoneda": "2",
+            "TipoCambio": "19.330000",
+            "Referencia": "",
+            "DescuentoDoc1": "0",
+            "Importe": "478.19",
+            "CodConcepto": "5",
+            "Fecha": "2024-08-08T17:25:27",
+            "CodigoCteProv": "MECM890831375",
+            "Observaciones": "",
+            "TimbrarCFDI": "True",
+            "LugarExp": "64560",
+            "FormaPago": "99",
+            "CondicionPago": "Cash In Advance",
+            "UsoCFDI": "G01",
+            "MetodoPago": "2",
+            "FileName": "C:\\Desarrollo\\Mfranklin\\XML\\Facturas\\INV_125410_06400_080824_192528.xml",
+            "RegimenFiscal": "612",
+            "Procesado": "",
+            "Movimientos": [
+                {
+                    "Id": 0,
+                    "Consecutivo": "",
+                    "Unidades": "1.00",
+                    "Precio": "412.2300",
+                    "Costo": "412.23",
+                    "CodProdSer": "93822535",
+                    "CodAlmacen": "1",
+                    "Referencia": "",
+                    "CtextoExtra1": ""
+                }
+            ],
+            "docRelacionados": []
+        }
+    ]
+}
