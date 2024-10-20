@@ -1,0 +1,183 @@
+{
+  "UserSDK": "Supervisor",
+  "PassSDK": "",
+  "Instancia": "DEVHUSK\\SQL22",
+  "UserSQL": "sa",
+  "PassSQL": "root",
+  "EmpresaDB": "adMotores_Franklin",
+  "RutaEmpresa": "C:\\Compac\\Empresas\\adMotores_Franklin",
+  "PassCSD": "12345678a",
+  "Documentos": [
+    {
+      "Id": 0,
+      "Folio": "33868",
+      "Serie": "CM",
+      "NumMoneda": "2",
+      "TipoCambio": "16.798500",
+      "Referencia": "",
+      "DescuentoDoc1": "0",
+      "Importe": "6.45",
+      "CodConcepto": "8",
+      "Fecha": "2024-03-16T21:31:27",
+      "CodigoCteProv": "ASY150122859",
+      "Observaciones": "",
+      "TimbrarCFDI": "True",
+      "LugarExp": "64560",
+      "FormaPago": "03",
+      "CondicionPago": "2% 45, 60 Days PF",
+      "UsoCFDI": "G02",
+      "MetodoPago": "1",
+      "FileName": "C:\\Kronox\\MF_ReadXMLs\\XML\\NotaCredito\\NC_33868_06400_240315_233127.xml",
+      "RegimenFiscal": "601",
+      "Procesado": "",
+      "Movimientos": [
+        {
+          "Id": 0,
+          "Consecutivo": "",
+          "Unidades": "1.00",
+          "Precio": "5.5600",
+          "Costo": "5.56",
+          "CodProdSer": "2PP",
+          "CodAlmacen": "1",
+          "Referencia": "",
+          "CtextoExtra1": ""
+        }
+      ],
+      "docRelacionados": [],
+      "docRelacionadosNCs": [
+        {
+          "UUID": "723519DA-4756-421E-BA13-E500811B2D3F"
+        }
+      ]
+    },
+    {
+      "Id": 0,
+      "Folio": "34861",
+      "Serie": "CM",
+      "NumMoneda": "2",
+      "TipoCambio": "19.212700",
+      "Referencia": "",
+      "DescuentoDoc1": "0",
+      "Importe": "172.02",
+      "CodConcepto": "8",
+      "Fecha": "2024-10-11T00:10:53",
+      "CodigoCteProv": "FEV980629BB2",
+      "Observaciones": "",
+      "TimbrarCFDI": "True",
+      "LugarExp": "64560",
+      "FormaPago": "99",
+      "CondicionPago": "2% 30, 60 Days PF",
+      "UsoCFDI": "G02",
+      "MetodoPago": "2",
+      "FileName": "C:\\Kronox\\MF_ReadXMLs\\XML\\NotaCredito\\NC_34861_06400_241008_ 01053.xml",
+      "RegimenFiscal": "601",
+      "Procesado": "",
+      "Movimientos": [
+        {
+          "Id": 0,
+          "Consecutivo": "",
+          "Unidades": "1.00",
+          "Precio": "148.2900",
+          "Costo": "148.29",
+          "CodProdSer": "2PP",
+          "CodAlmacen": "1",
+          "Referencia": "",
+          "CtextoExtra1": ""
+        }
+      ],
+      "docRelacionados": [],
+      "docRelacionadosNCs": [
+        {
+          "UUID": "FE7AA8E0-3F69-48F1-807F-5E77F83CF5F7"
+        },
+        {
+          "UUID": "62D1CDFE-38FC-4E7F-8470-B9F8AD79B7D1"
+        },
+        {
+          "UUID": "D6FEAC1A-83F1-4223-9FAC-C16BB4AF97D3"
+        },
+        {
+          "UUID": "524AE1CD-5867-42AA-98CD-45BDDEB1A71A"
+        },
+        {
+          "UUID": "8F994267-57EE-47ED-AACC-C3B1226C9920"
+        },
+        {
+          "UUID": "81F1186D-6195-4A79-AAE2-9FD1029C2531"
+        },
+        {
+          "UUID": "FB35184A-0480-4D3C-B5E5-74C338F757BB"
+        }
+      ]
+    },
+    {
+      "Id": 0,
+      "Folio": "34863",
+      "Serie": "CM",
+      "NumMoneda": "2",
+      "TipoCambio": "19.212700",
+      "Referencia": "",
+      "DescuentoDoc1": "0",
+      "Importe": "570.62",
+      "CodConcepto": "8",
+      "Fecha": "2024-10-11T00:10:55",
+      "CodigoCteProv": "BSU000404GJ7",
+      "Observaciones": "",
+      "TimbrarCFDI": "True",
+      "LugarExp": "64560",
+      "FormaPago": "99",
+      "CondicionPago": "2% 45, 60 Days PF",
+      "UsoCFDI": "G02",
+      "MetodoPago": "2",
+      "FileName": "C:\\Kronox\\MF_ReadXMLs\\XML\\NotaCredito\\NC_34863_06400_241008_ 01055.xml",
+      "RegimenFiscal": "601",
+      "Procesado": "",
+      "Movimientos": [
+        {
+          "Id": 0,
+          "Consecutivo": "",
+          "Unidades": "1.00",
+          "Precio": "491.9100",
+          "Costo": "491.91",
+          "CodProdSer": "2PP",
+          "CodAlmacen": "1",
+          "Referencia": "",
+          "CtextoExtra1": ""
+        }
+      ],
+      "docRelacionados": [],
+      "docRelacionadosNCs": [
+        {
+          "UUID": "53BC9DB6-B64D-46E6-BF9B-1BF203542EF1"
+        },
+        {
+          "UUID": "0BFAE843-23B6-4549-98AC-7AF9090B1A5B"
+        },
+        {
+          "UUID": "7195ACCB-7164-4866-B6FF-2677EE2459BB"
+        },
+        {
+          "UUID": "86A168F9-E8AB-4D75-903F-0A7D36D4026C"
+        },
+        {
+          "UUID": "7B134A83-1909-4177-AEFA-03E62B64FF1B"
+        },
+        {
+          "UUID": "727CC2E7-7641-4F25-9AB7-4C0DABCA5B43"
+        },
+        {
+          "UUID": "98AE7601-0364-47C9-A532-5A8EE06AAA86"
+        },
+        {
+          "UUID": "09211849-8F2B-4D51-B529-805C0FC5A9B3"
+        },
+        {
+          "UUID": "87AD963D-E1D5-4488-A59B-057BCBBAB3C1"
+        },
+        {
+          "UUID": "7275ACF4-26C8-4645-A71C-06A50FF832D9"
+        }
+      ]
+    }
+  ]
+}

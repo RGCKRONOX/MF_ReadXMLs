@@ -87,26 +87,26 @@ namespace ReadXMLPremium
             App.checkAppDirs();
             App.logs = new AppLogs();
 
+            //ServiceBase[] ServicesToRun;
+            //ServicesToRun = new ServiceBase[]
+            //{
+            //    new Service1()
+            //};
+            //ServiceBase.Run(ServicesToRun);
+
+#if DEBUG
+            //While debugging this section is used.
+            Service1 myService = new Service1();
+            myService.onDebug();
+            System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
+#else
             ServiceBase[] ServicesToRun;
             ServicesToRun = new ServiceBase[]
             {
-                new Service1()
+                                                                                                                                                                                                                                       new Service1()
             };
             ServiceBase.Run(ServicesToRun);
-
-//#if DEBUG
-//            //While debugging this section is used.
-//            Service1 myService = new Service1();
-//                        myService.onDebug();
-//                        System.Threading.Thread.Sleep(System.Threading.Timeout.Infinite);
-//#else
-//            ServiceBase[] ServicesToRun;
-//            ServicesToRun = new ServiceBase[]
-//            {
-//                                                                                                                                                                                                                                       new Service1()
-//            };
-//            ServiceBase.Run(ServicesToRun);
-//#endif
+#endif
         }
     }
 }

@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cce20="http://www.sat.gob.mx/ComercioExterior20" xmlns:leyendasFisc="http://www.sat.gob.mx/leyendasFiscales" Version="4.0" Serie="CM" Folio="34861" Fecha="2024-10-11T00:10:53" Sello="" FormaPago="99" NoCertificado="00001000000506860950" Certificado="" CondicionesDePago="2% 30, 60 Days PF" SubTotal="148.29" Moneda="USD" TipoCambio="19.212700" Total="172.02" TipoDeComprobante="E" Exportacion="01" MetodoPago="PPD" LugarExpedicion="64560" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/ComercioExterior20 http://www.sat.gob.mx/sitio_internet/cfd/ComercioExterior20/ComercioExterior20.xsd http://www.sat.gob.mx/leyendasFiscales http://www.sat.gob.mx/sitio_internet/cfd/leyendasFiscales/leyendasFisc.xsd">
+   <cfdi:CfdiRelacionados TipoRelacion="01">
+      <cfdi:CfdiRelacionado UUID="FE7AA8E0-3F69-48F1-807F-5E77F83CF5F7"/>
+   </cfdi:CfdiRelacionados>
+   <cfdi:CfdiRelacionados TipoRelacion="01">
+      <cfdi:CfdiRelacionado UUID="62D1CDFE-38FC-4E7F-8470-B9F8AD79B7D1"/>
+   </cfdi:CfdiRelacionados>
+   <cfdi:CfdiRelacionados TipoRelacion="01">
+      <cfdi:CfdiRelacionado UUID="D6FEAC1A-83F1-4223-9FAC-C16BB4AF97D3"/>
+   </cfdi:CfdiRelacionados>
+   <cfdi:CfdiRelacionados TipoRelacion="01">
+      <cfdi:CfdiRelacionado UUID="524AE1CD-5867-42AA-98CD-45BDDEB1A71A"/>
+   </cfdi:CfdiRelacionados>
+   <cfdi:CfdiRelacionados TipoRelacion="01">
+      <cfdi:CfdiRelacionado UUID="8F994267-57EE-47ED-AACC-C3B1226C9920"/>
+   </cfdi:CfdiRelacionados>
+   <cfdi:CfdiRelacionados TipoRelacion="01">
+      <cfdi:CfdiRelacionado UUID="81F1186D-6195-4A79-AAE2-9FD1029C2531"/>
+   </cfdi:CfdiRelacionados>
+   <cfdi:CfdiRelacionados TipoRelacion="01">
+      <cfdi:CfdiRelacionado UUID="FB35184A-0480-4D3C-B5E5-74C338F757BB"/>
+   </cfdi:CfdiRelacionados>
+   <cfdi:Emisor Nombre="MOTORES FRANKLIN" RegimenFiscal="601" Rfc="MFR911125M68"/>
+   <cfdi:Receptor Rfc="FEV-980629-BB2" Nombre="FERRETERIA Y EQUIPOS VICTORIA" UsoCFDI="G02" RegimenFiscalReceptor="601" DomicilioFiscalReceptor="87030"/>
+   <cfdi:Conceptos>
+      <cfdi:Concepto Cantidad="1.00" ClaveProdServ="01010101" ClaveUnidad="XUN" Unidad="Pieza" Descripcion="2% PRONTO PAGO" Importe="148.29" NoIdentificacion="2PP" ValorUnitario="148.2900" ObjetoImp="02">
+         <cfdi:Impuestos>
+            <cfdi:Traslados>
+               <cfdi:Traslado Base="148.29" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="23.73"/>
+            </cfdi:Traslados>
+         </cfdi:Impuestos>
+      </cfdi:Concepto>
+   </cfdi:Conceptos>
+   <cfdi:Impuestos TotalImpuestosTrasladados="23.73">
+      <cfdi:Traslados>
+         <cfdi:Traslado Base="148.29" Importe="23.73" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa"/>
+      </cfdi:Traslados>
+   </cfdi:Impuestos>
+   <cfdi:Addenda>
+      <FELE>
+         <OCRelac>125884</OCRelac>
+         <NbrOrden>CO-7482808</NbrOrden>
+         <Deposito>6400</Deposito>
+         <FechaReq>2024-10-04</FechaReq>
+         <Env>LOCAL</Env>
+         <ImporteLetras>CIENTO SETENTA Y DOS CON 02/100 </ImporteLetras>
+         <ImporteLetrasEng>ONE HUNDRED SEVENTY TWO AND 02/100</ImporteLetrasEng>
+         <Comentarios/>
+         <RegimenFiscal_Name>REGIMEN GENERAL DE LEY PERSONAS MORALES</RegimenFiscal_Name>
+         <MetodoPago_Name>Pago en parcialidades o diferido</MetodoPago_Name>
+         <UsoCFDI_Name>Devoluciones, descuentos o bonificaciones</UsoCFDI_Name>
+         <TipodeComprobante_Name>NOTA DE CREDITO</TipodeComprobante_Name>
+         <FormaPago_Name>Transferencia Electronica de Fondos</FormaPago_Name>
+         <FELETipoCambio>19.4678</FELETipoCambio>
+         <DomicilioFiscal_Calle>AVENIDA CHURUBUSCO #1600</DomicilioFiscal_Calle>
+         <DomicilioFiscal_Colonia>FRANCISCO I MADERO</DomicilioFiscal_Colonia>
+         <DomicilioFiscal_Localidad>MONTERREY</DomicilioFiscal_Localidad>
+         <DomicilioFiscal_municipio>MONTERREY</DomicilioFiscal_municipio>
+         <DomicilioFiscal_estado>NLE</DomicilioFiscal_estado>
+         <DomicilioFiscal_pais>MX</DomicilioFiscal_pais>
+         <DomicilioFiscal_codigopostal>64560</DomicilioFiscal_codigopostal>
+         <Expedidoen_Calle>C/O MOTORES ELECTRICOS SUMERGIBLES</Expedidoen_Calle>
+         <Expedidoen_Colonia>AV. INDUSTRIAS #502-A</Expedidoen_Colonia>
+         <Expedidoen_Localidad>PARQUE INDUSTRIAL KRONOS</Expedidoen_Localidad>
+         <Expedidoen_municipio>APODACA</Expedidoen_municipio>
+         <Expedidoen_estado>NLE</Expedidoen_estado>
+         <Expedidoen_pais>MX</Expedidoen_pais>
+         <Expedidoen_codigopostal>66603</Expedidoen_codigopostal>
+         <NumCliente>640396</NumCliente>
+         <Cliente>FERRETERIA Y EQUIPOS VICTORIA</Cliente>
+         <ContactoCliente>FERRETERIA Y EQUIPOS VICTORIA</ContactoCliente>
+         <Domicilio_Calle>Lauro Rendon</Domicilio_Calle>
+         <Domicilio_Colonia>632</Domicilio_Colonia>
+         <Domicilio_Localidad>SN</Domicilio_Localidad>
+         <Domicilio_municipio>Victoria</Domicilio_municipio>
+         <Domicilio_estado>TAM</Domicilio_estado>
+         <Domicilio_pais>MX</Domicilio_pais>
+         <Domicilio_codigopostal>87030</Domicilio_codigopostal>
+         <ClieSub>Facturación Frank</ClieSub>
+         <ClieAtt>PDF, XML</ClieAtt>
+         <Cliemail>contabilidad@fevsa.com.mx,ferret361@hotmail.com,griselle.gamez@fele.com,juan.gomez@fele.com,</Cliemail>
+         <ClienteEntrega>FERRETERIA Y EQUIPOS VICTORIA</ClienteEntrega>
+         <ContactoEntrega>FERRETERIA Y EQUIPOS VICTORIA</ContactoEntrega>
+         <TelContactoEntrega/>
+         <Entrega_Calle>Lauro Rendon</Entrega_Calle>
+         <Entrega_Colonia>632</Entrega_Colonia>
+         <Entrega_Localidad>SN</Entrega_Localidad>
+         <Entrega_municipio>Victoria</Entrega_municipio>
+         <Entrega_estado>TAM</Entrega_estado>
+         <Entrega_pais>MX</Entrega_pais>
+         <Entrega_codigopostal>87030</Entrega_codigopostal>
+         <TotalPeso>0.000</TotalPeso>
+         <Detalle>
+            <AddendaDetalleItem>
+               <nItem>1</nItem>
+               <cantidad>1.000</cantidad>
+               <PrecioUnitario>148.2900</PrecioUnitario>
+               <unidade/>
+               <FELEPedimento>      </FELEPedimento>
+               <FELEPedimentoFecha/>
+               <FELEPedimentoAduana/>
+            </AddendaDetalleItem>
+            <AddendaDetalle01/>
+         </Detalle>
+      </FELE>
+   </cfdi:Addenda>
+</cfdi:Comprobante>

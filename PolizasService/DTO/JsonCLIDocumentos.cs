@@ -35,6 +35,7 @@ namespace PolizasService.DTO
 
         // Lista opcional de documentos relacionados
         public List<DocRelacionado> docRelacionados { get; set; } = new List<DocRelacionado>();
+        public List<DocRelacionadosNC> docRelacionadosNCs { get; set; } = new List<DocRelacionadosNC>();
     }
 
     public class Movimiento
@@ -60,5 +61,10 @@ namespace PolizasService.DTO
         public decimal? ImpPagado { get; set; }
         public decimal? ObjetoImpDR { get; set; }
         public decimal? ImpSaldoAnt { get; set; }
+    }
+
+    public class DocRelacionadosNC
+    {
+        public string UUID { get; set; }
     }
 }

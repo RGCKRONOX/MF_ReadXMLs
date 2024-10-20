@@ -1,0 +1,90 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cce20="http://www.sat.gob.mx/ComercioExterior20" xmlns:leyendasFisc="http://www.sat.gob.mx/leyendasFiscales" Version="4.0" Serie="CM" Folio="33868" Fecha="2024-03-16T21:31:27" Sello="" FormaPago="03" NoCertificado="00001000000506860950" Certificado="" CondicionesDePago="2% 45, 60 Days PF" SubTotal="5.56" Moneda="USD" TipoCambio="16.798500" Total="6.45" TipoDeComprobante="E" Exportacion="01" MetodoPago="PUE" LugarExpedicion="64560" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/ComercioExterior20 http://www.sat.gob.mx/sitio_internet/cfd/ComercioExterior20/ComercioExterior20.xsd http://www.sat.gob.mx/leyendasFiscales http://www.sat.gob.mx/sitio_internet/cfd/leyendasFiscales/leyendasFisc.xsd">
+   <cfdi:CfdiRelacionados TipoRelacion="01">
+      <cfdi:CfdiRelacionado UUID="723519DA-4756-421E-BA13-E500811B2D3F"/>
+   </cfdi:CfdiRelacionados>
+   <cfdi:Emisor Nombre="MOTORES FRANKLIN" RegimenFiscal="601" Rfc="MFR911125M68"/>
+   <cfdi:Receptor Rfc="ASY150122859" Nombre="ATL SYNERGY" UsoCFDI="G02" RegimenFiscalReceptor="601" DomicilioFiscalReceptor="64987"/>
+   <cfdi:Conceptos>
+      <cfdi:Concepto Cantidad="1.00" ClaveProdServ="01010101" ClaveUnidad="XUN" Unidad="Pieza" Descripcion="2% PRONTO PAGO" Importe="5.56" NoIdentificacion="2PP" ValorUnitario="5.5600" ObjetoImp="02">
+         <cfdi:Impuestos>
+            <cfdi:Traslados>
+               <cfdi:Traslado Base="5.56" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="0.89"/>
+            </cfdi:Traslados>
+         </cfdi:Impuestos>
+      </cfdi:Concepto>
+   </cfdi:Conceptos>
+   <cfdi:Impuestos TotalImpuestosTrasladados="0.89">
+      <cfdi:Traslados>
+         <cfdi:Traslado Base="5.56" Importe="0.89" Impuesto="002" TasaOCuota="0.160000" TipoFactor="Tasa"/>
+      </cfdi:Traslados>
+   </cfdi:Impuestos>
+   <cfdi:Addenda>
+      <FELE>
+         <OCRelac>2644</OCRelac>
+         <NbrOrden>CO-7048965</NbrOrden>
+         <Deposito>6400</Deposito>
+         <FechaReq>2024-03-15</FechaReq>
+         <Env>LOCAL</Env>
+         <ImporteLetras>SEIS CON 45/100 </ImporteLetras>
+         <ImporteLetrasEng>SIX AND 45/100</ImporteLetrasEng>
+         <Comentarios/>
+         <RegimenFiscal_Name>REGIMEN GENERAL DE LEY PERSONAS MORALES</RegimenFiscal_Name>
+         <MetodoPago_Name>Pago en parcialidades o diferido</MetodoPago_Name>
+         <UsoCFDI_Name>Devoluciones, descuentos o bonificaciones</UsoCFDI_Name>
+         <TipodeComprobante_Name>NOTA DE CREDITO</TipodeComprobante_Name>
+         <FormaPago_Name>Transferencia Electronica de Fondos</FormaPago_Name>
+         <FELETipoCambio>16.7985</FELETipoCambio>
+         <DomicilioFiscal_Calle>AVENIDA CHURUBUSCO #1600</DomicilioFiscal_Calle>
+         <DomicilioFiscal_Colonia>FRANCISCO I MADERO</DomicilioFiscal_Colonia>
+         <DomicilioFiscal_Localidad>MONTERREY</DomicilioFiscal_Localidad>
+         <DomicilioFiscal_municipio>MONTERREY</DomicilioFiscal_municipio>
+         <DomicilioFiscal_estado>NLE</DomicilioFiscal_estado>
+         <DomicilioFiscal_pais>MX</DomicilioFiscal_pais>
+         <DomicilioFiscal_codigopostal>64560</DomicilioFiscal_codigopostal>
+         <Expedidoen_Calle>C/O MOTORES ELECTRICOS SUMERGIBLES</Expedidoen_Calle>
+         <Expedidoen_Colonia>AV. INDUSTRIAS #502-A</Expedidoen_Colonia>
+         <Expedidoen_Localidad>PARQUE INDUSTRIAL KRONOS</Expedidoen_Localidad>
+         <Expedidoen_municipio>APODACA</Expedidoen_municipio>
+         <Expedidoen_estado>NLE</Expedidoen_estado>
+         <Expedidoen_pais>MX</Expedidoen_pais>
+         <Expedidoen_codigopostal>66603</Expedidoen_codigopostal>
+         <NumCliente>640076</NumCliente>
+         <Cliente>ATL SYNERGY</Cliente>
+         <ContactoCliente>ATL SYNERGY</ContactoCliente>
+         <Domicilio_Calle>Carretera Nacional Km 267</Domicilio_Calle>
+         <Domicilio_Colonia>1100</Domicilio_Colonia>
+         <Domicilio_Localidad>2 Piso Local 25</Domicilio_Localidad>
+         <Domicilio_municipio>Monterrey</Domicilio_municipio>
+         <Domicilio_estado>NLE</Domicilio_estado>
+         <Domicilio_pais>MX</Domicilio_pais>
+         <Domicilio_codigopostal>64987</Domicilio_codigopostal>
+         <ClieSub>Facturación Frank</ClieSub>
+         <ClieAtt>PDF, XML</ClieAtt>
+         <Cliemail>compras@vde.com.mx,mayelar@atlsynergy.com,adrian.osto.c@vde.com.mx,mayela.rodriguez.s@vde.com.mx,griselle.gamez@fele.com,</Cliemail>
+         <ClienteEntrega>ATL SYNERGY</ClienteEntrega>
+         <ContactoEntrega>ATL SYNERGY</ContactoEntrega>
+         <TelContactoEntrega/>
+         <Entrega_Calle>Carretera Nacional Km 267</Entrega_Calle>
+         <Entrega_Colonia>1100</Entrega_Colonia>
+         <Entrega_Localidad>2 Piso Local 25</Entrega_Localidad>
+         <Entrega_municipio>Monterrey</Entrega_municipio>
+         <Entrega_estado>NLE</Entrega_estado>
+         <Entrega_pais>MX</Entrega_pais>
+         <Entrega_codigopostal>64987</Entrega_codigopostal>
+         <TotalPeso>0.000</TotalPeso>
+         <Detalle>
+            <AddendaDetalleItem>
+               <nItem>1</nItem>
+               <cantidad>1.000</cantidad>
+               <PrecioUnitario>5.5600</PrecioUnitario>
+               <unidade/>
+               <FELEPedimento>      </FELEPedimento>
+               <FELEPedimentoFecha/>
+               <FELEPedimentoAduana/>
+            </AddendaDetalleItem>
+            <AddendaDetalle01/>
+         </Detalle>
+      </FELE>
+   </cfdi:Addenda>
+</cfdi:Comprobante>

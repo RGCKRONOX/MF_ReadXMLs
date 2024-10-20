@@ -36,6 +36,13 @@ namespace LecturaXMLPremium.ResourceFile
                 RegimenFiscal = comprobante.Receptor.RegimenFiscalReceptor,
                 FileName = comprobante.nameFile,
                 Procesado = "", //Bandera que usa el CLI
+                docRelacionadosNCs = comprobante.CfdiRelacionadosList
+                .SelectMany(cfdiRelacionados => cfdiRelacionados.CfdiRelacionado
+                    .Select(cfdiRelacionado => new DocRelacionadosNC
+                    {
+                        UUID = cfdiRelacionado.UUID // Accediendo al UUID de CfdiRelacionado
+                    }))
+                .ToList(),
                 Movimientos = comprobante.Conceptos.Select(c => new Movimiento
                 {
                     Id = 0,

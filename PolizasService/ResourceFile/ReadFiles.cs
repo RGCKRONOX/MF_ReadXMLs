@@ -61,7 +61,8 @@ namespace PolizasService.ResourceFile
             {
                 XDocument xmlDocument = XDocument.Load(xmlFilePath);
                 XNamespace nsCfdi = "http://www.sat.gob.mx/cfd/4";
-                XNamespace nsPago20 = "http://www.sat.gob.mx/Pagos20";  // Namespace del complemento de pagos 2.0
+                XNamespace nsPago20 = "http://www.sat.gob.mx/Pagos20";
+
                 ComprobanteXML comprobanteXML = new ComprobanteXML
                 {
                     Version = (string)xmlDocument.Root.Attribute("Version"),
@@ -73,10 +74,10 @@ namespace PolizasService.ResourceFile
                     NoCertificado = (string)xmlDocument.Root.Attribute("NoCertificado"),
                     Certificado = (string)xmlDocument.Root.Attribute("Certificado"),
                     CondicionesDePago = (string)xmlDocument.Root.Attribute("CondicionesDePago"),
-                    SubTotal = Convert.ToDecimal((string)xmlDocument.Root.Attribute("SubTotal")),
+                    SubTotal = Convert.ToDecimal((string)xmlDocument.Root.Attribute("SubTotal") ?? "0"),
                     Moneda = (string)xmlDocument.Root.Attribute("Moneda"),
-                    TipoCambio = Convert.ToDecimal((string)xmlDocument.Root.Attribute("TipoCambio")),
-                    Total = Convert.ToDecimal((string)xmlDocument.Root.Attribute("Total")),
+                    TipoCambio = Convert.ToDecimal((string)xmlDocument.Root.Attribute("TipoCambio") ?? "0"),
+                    Total = Convert.ToDecimal((string)xmlDocument.Root.Attribute("Total") ?? "0"),
                     TipoDeComprobante = (string)xmlDocument.Root.Attribute("TipoDeComprobante"),
                     Exportacion = (string)xmlDocument.Root.Attribute("Exportacion"),
                     MetodoPago = (string)xmlDocument.Root.Attribute("MetodoPago"),
@@ -97,9 +98,10 @@ namespace PolizasService.ResourceFile
                         DomicilioFiscalReceptor = (string)xmlDocument.Root.Element(nsCfdi + "Receptor")?.Attribute("DomicilioFiscalReceptor")
                     },
                     Conceptos = new List<Concepto>(),
+                    CfdiRelacionadosList = new List<CfdiRelacionados>(),
                     Impuestos = new Impuestos
                     {
-                        TotalImpuestosTrasladados = Convert.ToDecimal((string)xmlDocument.Root.Element(nsCfdi + "Impuestos")?.Attribute("TotalImpuestosTrasladados")),
+                        TotalImpuestosTrasladados = Convert.ToDecimal((string)xmlDocument.Root.Element(nsCfdi + "Impuestos")?.Attribute("TotalImpuestosTrasladados") ?? "0"),
                         Traslados = new List<Traslado>()
                     },
                     Addenda = new Addenda
@@ -108,154 +110,123 @@ namespace PolizasService.ResourceFile
                         {
                             OCRelac = (string)xmlDocument.Root.Element(nsCfdi + "Addenda")?.Element("FELE")?.Element("noOrdenCompra"),
                             NbrOrden = (string)xmlDocument.Root.Element(nsCfdi + "Addenda")?.Element("FELE")?.Element("noOrdenVenta"),
-                            Deposito = (string)xmlDocument.Root.Element(nsCfdi + "Addenda")?.Element("FELE")?.Element("Comentarios"),
+                            Deposito = (string)xmlDocument.Root.Element(nsCfdi + "Addenda")?.Element("FELE")?.Element("Comentarios")
                         }
                     }
                 };
+                // **Procesar CfdiRelacionados**
+                var cfdiRelacionadosElements = xmlDocument.Root.Elements(nsCfdi + "CfdiRelacionados");
+                foreach (var cfdiRelacionadosElement in cfdiRelacionadosElements)
+                {
+                    var cfdiRelacionados = new CfdiRelacionados(); // Crea una nueva instancia para cada conjunto de CfdiRelacionados
+                    foreach (var cfdiRelacionado in cfdiRelacionadosElement.Elements(nsCfdi + "CfdiRelacionado"))
+                    {
+                        cfdiRelacionados.CfdiRelacionado.Add(new CfdiRelacionado
+                        {
+                            UUID = (string)cfdiRelacionado.Attribute("UUID")
+                        });
+                    }
+                    // Añade el objeto cfdiRelacionados a la lista en comprobanteXML
+                    comprobanteXML.CfdiRelacionadosList.Add(cfdiRelacionados);
+                }
 
-                // Agregar conceptos
+                // Procesar conceptos
                 var conceptosElement = xmlDocument.Root.Element(nsCfdi + "Conceptos");
                 if (conceptosElement != null)
                 {
                     foreach (var concepto in conceptosElement.Elements(nsCfdi + "Concepto"))
                     {
-                        comprobanteXML.Conceptos.Add(new Concepto
+                        var nuevoConcepto = new Concepto
                         {
-                            Cantidad = Convert.ToDecimal((string)concepto.Attribute("Cantidad")),
+                            Cantidad = Convert.ToDecimal((string)concepto.Attribute("Cantidad") ?? "0"),
                             ClaveProdServ = (string)concepto.Attribute("ClaveProdServ"),
                             ClaveUnidad = (string)concepto.Attribute("ClaveUnidad"),
                             Unidad = (string)concepto.Attribute("Unidad"),
                             Descripcion = (string)concepto.Attribute("Descripcion"),
-                            Importe = Convert.ToDecimal((string)concepto.Attribute("Importe")),
+                            Importe = Convert.ToDecimal((string)concepto.Attribute("Importe") ?? "0"),
                             NoIdentificacion = (string)concepto.Attribute("NoIdentificacion"),
-                            ValorUnitario = Convert.ToDecimal((string)concepto.Attribute("ValorUnitario")),
+                            ValorUnitario = Convert.ToDecimal((string)concepto.Attribute("ValorUnitario") ?? "0"),
                             ObjetoImp = (string)concepto.Attribute("ObjetoImp"),
                             Impuestos = new Impuestos
                             {
                                 Traslados = new List<Traslado>()
                             }
-                        });
-
-                        // Agregar traslados si existen
-                        var impuestosElement = concepto.Element(nsCfdi + "Impuestos");
-                        if (impuestosElement != null)
-                        {
-                            var trasladosElement = impuestosElement.Element(nsCfdi + "Traslados");
-                            if (trasladosElement != null)
-                            {
-                                foreach (var traslado in trasladosElement.Elements(nsCfdi + "Traslado"))
-                                {
-                                    comprobanteXML.Conceptos[comprobanteXML.Conceptos.Count - 1].Impuestos.Traslados.Add(new Traslado
-                                    {
-                                        Base = Convert.ToDecimal((string)traslado.Attribute("Base")),
-                                        Importe = Convert.ToDecimal((string)traslado.Attribute("Importe")),
-                                        Impuesto = (string)traslado.Attribute("Impuesto"),
-                                        TasaOCuota = Convert.ToDecimal((string)traslado.Attribute("TasaOCuota")),
-                                        TipoFactor = (string)traslado.Attribute("TipoFactor")
-                                    });
-                                }
-                            }
-                        }
-                    }
-                }
-
-                // Agregar relación de CFDI
-                var cfdiRelacionados = xmlDocument.Root.Element(nsCfdi + "CfdiRelacionados");
-                if (cfdiRelacionados != null)
-                {
-                    foreach (var relacionado in cfdiRelacionados.Elements(nsCfdi + "CfdiRelacionado"))
-                    {
-                        comprobanteXML.CfdiRelacionados.CfdiRelacionadosList.Add(new CfdiRelacionado
-                        {
-                            UUID = (string)relacionado.Attribute("UUID")
-                        });
-                    }
-                }
-
-                // Obtener el nodo Complemento
-                var complementoElement = xmlDocument.Root.Element(nsCfdi + "Complemento");
-                if (complementoElement != null)
-                {
-                    // Obtener el nodo Pagos dentro del Complemento
-                    var pagosElement = complementoElement.Element(nsPago20 + "Pagos");
-                    if (pagosElement != null)
-                    {
-                        comprobanteXML.Pagos = new Pago20
-                        {
-                            Totales = new PagoTotales
-                            {
-                                TotalTrasladosBaseIVA16 = Convert.ToDecimal((string)pagosElement.Element(nsPago20 + "Totales")?.Attribute("TotalTrasladosBaseIVA16") ?? "0"),
-                                TotalTrasladosImpuestoIVA16 = Convert.ToDecimal((string)pagosElement.Element(nsPago20 + "Totales")?.Attribute("TotalTrasladosImpuestoIVA16") ?? "0"),
-                                MontoTotalPagos = Convert.ToDecimal((string)pagosElement.Element(nsPago20 + "Totales")?.Attribute("MontoTotalPagos") ?? "0")
-                            },
-                            Pago = new List<Pago>()
                         };
 
-                        // Procesar cada elemento de Pago
-                        foreach (var pagoElement in pagosElement.Elements(nsPago20 + "Pago"))
+                        // Procesar traslados
+                        var impuestosElement = concepto.Element(nsCfdi + "Impuestos");
+                        var trasladosElement = impuestosElement?.Element(nsCfdi + "Traslados");
+                        if (trasladosElement != null)
                         {
-                            Pago pago = new Pago
+                            foreach (var traslado in trasladosElement.Elements(nsCfdi + "Traslado"))
                             {
-                                FechaPago = DateTime.Parse((string)pagoElement.Attribute("FechaPago")),
-                                MonedaP = (string)pagoElement.Attribute("MonedaP"),
-                                TipoCambioP = Convert.ToDecimal((string)pagoElement.Attribute("TipoCambioP")),
-                                FormaDePagoP = (string)pagoElement.Attribute("FormaDePagoP"),
-                                Monto = Convert.ToDecimal((string)pagoElement.Attribute("Monto")),
-                                DoctoRelacionado = new List<DoctoRelacionado>(),
-                                ImpuestosP = new PagoImpuestosP
+                                nuevoConcepto.Impuestos.Traslados.Add(new Traslado
                                 {
-                                    TrasladosP = new List<PagoTrasladoP>() // Asegúrate de que esta clase esté definida
-                                }
-                            };
-
-                            // Agregar documentos relacionados
-                            var doctosRelacionadosElement = pagoElement.Elements(nsPago20 + "DoctoRelacionado");
-                            foreach (var docto in doctosRelacionadosElement)
-                            {
-                                DoctoRelacionado doctoRelacionado = new DoctoRelacionado
-                                {
-                                    IdDocumento = (string)docto.Attribute("IdDocumento"),
-                                    Serie = (string)docto.Attribute("Serie"),
-                                    Folio = (string)docto.Attribute("Folio"),
-                                    MonedaDR = (string)docto.Attribute("MonedaDR"),
-                                    NumParcialidad = Convert.ToInt32((string)docto.Attribute("NumParcialidad") ?? "0"),
-                                    ImpSaldoAnt = Convert.ToDecimal((string)docto.Attribute("ImpSaldoAnt") ?? "0"),
-                                    ImpPagado = Convert.ToDecimal((string)docto.Attribute("ImpPagado") ?? "0"),
-                                    ImpSaldoInsoluto = Convert.ToDecimal((string)docto.Attribute("ImpSaldoInsoluto") ?? "0"),
-                                    ObjetoImpDR = (string)docto.Attribute("ObjetoImpDR") // Incluido para el nodo "ObjetoImpDR"
-                                };
-                                pago.DoctoRelacionado.Add(doctoRelacionado);
+                                    Base = Convert.ToDecimal((string)traslado.Attribute("Base") ?? "0"),
+                                    Importe = Convert.ToDecimal((string)traslado.Attribute("Importe") ?? "0"),
+                                    Impuesto = (string)traslado.Attribute("Impuesto"),
+                                    TasaOCuota = Convert.ToDecimal((string)traslado.Attribute("TasaOCuota") ?? "0"),
+                                    TipoFactor = (string)traslado.Attribute("TipoFactor")
+                                });
                             }
-
-                            // Agregar impuestos del pago
-                            var impuestosPElement = pagoElement.Element(nsPago20 + "ImpuestosP");
-                            if (impuestosPElement != null)
-                            {
-                                var trasladosPElement = impuestosPElement.Element(nsPago20 + "TrasladosP");
-                                if (trasladosPElement != null)
-                                {
-                                    foreach (var trasladoP in trasladosPElement.Elements(nsPago20 + "TrasladoP"))
-                                    {
-                                        PagoTrasladoP traslado = new PagoTrasladoP
-                                        {
-                                            BaseP = Convert.ToDecimal((string)trasladoP.Attribute("BaseP") ?? "0"),
-                                            ImpuestoP = (string)trasladoP.Attribute("ImpuestoP"),
-                                            TipoFactorP = (string)trasladoP.Attribute("TipoFactorP"),
-                                            TasaOCuotaP = Convert.ToDecimal((string)trasladoP.Attribute("TasaOCuotaP") ?? "0"),
-                                            ImporteP = Convert.ToDecimal((string)trasladoP.Attribute("ImporteP") ?? "0")
-                                        };
-                                        pago.ImpuestosP.TrasladosP.Add(traslado);
-                                    }
-                                }
-                            }
-
-                            // Agregar el pago al listado
-                            comprobanteXML.Pagos.Pago.Add(pago);
                         }
+                        comprobanteXML.Conceptos.Add(nuevoConcepto);
                     }
                 }
 
+                // Procesar complemento de pagos
+                var complementoElement = xmlDocument.Root.Element(nsCfdi + "Complemento");
+                var pagosElement = complementoElement?.Element(nsPago20 + "Pagos");
+                if (pagosElement != null)
+                {
+                    comprobanteXML.Pagos = new Pago20
+                    {
+                        Totales = new PagoTotales
+                        {
+                            TotalTrasladosBaseIVA16 = Convert.ToDecimal((string)pagosElement.Element(nsPago20 + "Totales")?.Attribute("TotalTrasladosBaseIVA16") ?? "0"),
+                            TotalTrasladosImpuestoIVA16 = Convert.ToDecimal((string)pagosElement.Element(nsPago20 + "Totales")?.Attribute("TotalTrasladosImpuestoIVA16") ?? "0"),
+                            MontoTotalPagos = Convert.ToDecimal((string)pagosElement.Element(nsPago20 + "Totales")?.Attribute("MontoTotalPagos") ?? "0")
+                        },
+                        Pago = new List<Pago>()
+                    };
 
+                    // Procesar cada pago
+                    foreach (var pagoElement in pagosElement.Elements(nsPago20 + "Pago"))
+                    {
+                        var nuevoPago = new Pago
+                        {
+                            FechaPago = DateTime.Parse((string)pagoElement.Attribute("FechaPago")),
+                            MonedaP = (string)pagoElement.Attribute("MonedaP"),
+                            TipoCambioP = Convert.ToDecimal((string)pagoElement.Attribute("TipoCambioP") ?? "0"),
+                            FormaDePagoP = (string)pagoElement.Attribute("FormaDePagoP"),
+                            Monto = Convert.ToDecimal((string)pagoElement.Attribute("Monto") ?? "0"),
+                            DoctoRelacionado = new List<DoctoRelacionado>(),
+                            ImpuestosP = new PagoImpuestosP
+                            {
+                                TrasladosP = new List<PagoTrasladoP>()
+                            }
+                        };
+
+                        // Procesar documentos relacionados
+                        foreach (var docto in pagoElement.Elements(nsPago20 + "DoctoRelacionado"))
+                        {
+                            nuevoPago.DoctoRelacionado.Add(new DoctoRelacionado
+                            {
+                                IdDocumento = (string)docto.Attribute("IdDocumento"),
+                                Serie = (string)docto.Attribute("Serie"),
+                                Folio = (string)docto.Attribute("Folio"),
+                                MonedaDR = (string)docto.Attribute("MonedaDR"),
+                                NumParcialidad = Convert.ToInt32((string)docto.Attribute("NumParcialidad") ?? "0"),
+                                ImpSaldoAnt = Convert.ToDecimal((string)docto.Attribute("ImpSaldoAnt") ?? "0"),
+                                ImpPagado = Convert.ToDecimal((string)docto.Attribute("ImpPagado") ?? "0"),
+                                ImpSaldoInsoluto = Convert.ToDecimal((string)docto.Attribute("ImpSaldoInsoluto") ?? "0"),
+                                ObjetoImpDR = (string)docto.Attribute("ObjetoImpDR")
+                            });
+                        }
+
+                        comprobanteXML.Pagos.Pago.Add(nuevoPago);
+                    }
+                }
 
                 return comprobanteXML;
             }
@@ -265,6 +236,7 @@ namespace PolizasService.ResourceFile
                 return null;
             }
         }
+
 
 
         public bool ReadXMLPagos(DataXMLs dataXML)

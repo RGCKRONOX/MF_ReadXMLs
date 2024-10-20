@@ -31,7 +31,7 @@ namespace PolizasService.DTO
         public List<Concepto> Conceptos { get; set; }
         public Impuestos Impuestos { get; set; }
         public Addenda Addenda { get; set; }
-        public CfdiRelacionados CfdiRelacionados { get; set; } = new CfdiRelacionados();
+        public List<CfdiRelacionados> CfdiRelacionadosList { get; set; } = new List<CfdiRelacionados>(); // Ajuste para múltiples CfdiRelacionados
         public Pago20 Pagos { get; set; } = new Pago20(); // Complemento de pagos
     }
 
@@ -53,7 +53,7 @@ namespace PolizasService.DTO
     public class CfdiRelacionados
     {
         public string TipoRelacion { get; set; } = string.Empty;
-        public List<CfdiRelacionado> CfdiRelacionadosList { get; set; } = new List<CfdiRelacionado>();
+        public List<CfdiRelacionado> CfdiRelacionado { get; set; } = new List<CfdiRelacionado>();
     }
 
     public class CfdiRelacionado
