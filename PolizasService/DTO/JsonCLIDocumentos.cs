@@ -66,5 +66,6 @@ namespace PolizasService.DTO
     public class DocRelacionadosNC
     {
         public string UUID { get; set; }
+        public string TipoRelacion { get; set; }
     }
 }

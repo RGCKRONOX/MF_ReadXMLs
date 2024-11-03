@@ -26,7 +26,7 @@ namespace PolizasService.ResourceFile
 
                 foreach (string xmlFile in xmlFiles)
                 {
-                    App.logs.add($"Leyendo el archivo ------------------------------------------------------ [{xmlFile}]");
+                    App.logs.add($"Leyendo el archivo : [{xmlFile}]");
                     try
                     {
                         ComprobanteXML comprobante = ReadXMLs(xmlFile);
@@ -35,6 +35,8 @@ namespace PolizasService.ResourceFile
                             JsonCLIDocumentos documentoJson = estructurarJSON.CrearJSONDocumento(comprobante, dataXML);
                             documentosJsonList.Add(documentoJson);
                         }
+                        App.logs.add("Se creo bien el archivo JSON Para envio de documento");
+
                     }
                     catch (Exception ex)
                     {
@@ -45,7 +47,9 @@ namespace PolizasService.ResourceFile
                 string jsonComprobanteArray = JsonConvert.SerializeObject(jsonCLI, Formatting.Indented);
                 string jsonFilePath = Path.Combine(dataXML.FileURL, "CLI.json");
                 File.WriteAllText(jsonFilePath, jsonComprobanteArray);
+                App.logs.add($"*******************");
                 App.logs.add($"Archivo creado y Guardado : concepto {dataXML.ConceptoPremium} -{dataXML.TipoDocumentoXML} // {jsonFilePath}");
+                App.logs.add($"*******************");
                 return true;
             }
             catch (Exception ex)
@@ -118,7 +122,10 @@ namespace PolizasService.ResourceFile
                 var cfdiRelacionadosElements = xmlDocument.Root.Elements(nsCfdi + "CfdiRelacionados");
                 foreach (var cfdiRelacionadosElement in cfdiRelacionadosElements)
                 {
-                    var cfdiRelacionados = new CfdiRelacionados(); // Crea una nueva instancia para cada conjunto de CfdiRelacionados
+                    var cfdiRelacionados = new CfdiRelacionados
+                    {
+                        TipoRelacion = (string)cfdiRelacionadosElement.Attribute("TipoRelacion") // Obtiene el TipoRelacion
+                    };
                     foreach (var cfdiRelacionado in cfdiRelacionadosElement.Elements(nsCfdi + "CfdiRelacionado"))
                     {
                         cfdiRelacionados.CfdiRelacionado.Add(new CfdiRelacionado
@@ -126,6 +133,7 @@ namespace PolizasService.ResourceFile
                             UUID = (string)cfdiRelacionado.Attribute("UUID")
                         });
                     }
+
                     // Añade el objeto cfdiRelacionados a la lista en comprobanteXML
                     comprobanteXML.CfdiRelacionadosList.Add(cfdiRelacionados);
                 }

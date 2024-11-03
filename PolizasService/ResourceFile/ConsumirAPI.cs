@@ -22,31 +22,35 @@ namespace PolizasService.ResourceFile
 
         public async Task<(bool IsSuccess, ApiResponse Response)> PostCreateDocumentoAPI(JsonOutput jsonOutput, string apiUrl)
         {
+            App.logs.add("************************* Se inicia a consumir la API *****");
             try
             {
                 var jsonComprobanteArray = JsonConvert.SerializeObject(jsonOutput, Formatting.Indented);
                 var content = new StringContent(jsonComprobanteArray, System.Text.Encoding.UTF8, "application/json");
                 var response = await _httpClient.PostAsync(apiUrl, content);
                 string responseContent = await response.Content.ReadAsStringAsync();
-                if (response.IsSuccessStatusCode)
+                if (response.IsSuccessStatusCode )
                 {
                     var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(responseContent);
+                    App.logs.add("************************* Respuesta satisfactoria *****");
                     return (true, apiResponse);
                 }
                 else
                 {
+                    App.logs.add("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                     return (false, new ApiResponse { Success = false, Message = $"Error: {responseContent}" });
                 }
             }
             catch (Exception ex)
             {
+                App.logs.add("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                 return (false, new ApiResponse { Success = false, Message = $"Excepción: {ex.Message}" });
             }
         }
 
         public async Task<ApiResponse> PreparaConsumoAPIAsync(string pathFile, string nameFile, string endPoint)
         {
-            App.logs.add($"----------- Inicia lectura de la API -------");
+            App.logs.add($"Inicia lectura de la API");
             string rutaCompleta = Path.Combine(pathFile, $"{nameFile}.json");
             if (!File.Exists(rutaCompleta))
             {
@@ -67,7 +71,7 @@ namespace PolizasService.ResourceFile
             }
             catch (Exception ex)
             {
-                App.logs.add($"Error de lectrua en JSON : {ex.Message}");
+                App.logs.add($"Error de lectura en JSON : {ex.Message}");
                 return null; // Retorna null si hay algún error
             }
         }

@@ -13,6 +13,7 @@ namespace LecturaXMLPremium.ResourceFile
         Helpers helpers = new Helpers();
         public JsonCLIDocumentos CrearJSONDocumento(ComprobanteXML comprobante, DataXMLs dataXML)
         {
+            App.logs.add("Se inicia la creacion del JSON para enviarse");
             return new JsonCLIDocumentos
             {
                 Id = 0,
@@ -40,7 +41,8 @@ namespace LecturaXMLPremium.ResourceFile
                 .SelectMany(cfdiRelacionados => cfdiRelacionados.CfdiRelacionado
                     .Select(cfdiRelacionado => new DocRelacionadosNC
                     {
-                        UUID = cfdiRelacionado.UUID // Accediendo al UUID de CfdiRelacionado
+                        UUID = cfdiRelacionado.UUID, // Accediendo al UUID de CfdiRelacionado
+                        TipoRelacion = cfdiRelacionados.TipoRelacion
                     }))
                 .ToList(),
                 Movimientos = comprobante.Conceptos.Select(c => new Movimiento

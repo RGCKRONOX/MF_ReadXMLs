@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using PolizasService.DTO;
+using ReadXMLPremium;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,6 +12,7 @@ namespace LecturaXMLPremium.ResourceFile
 {
     public class Helpers
     {
+        AppLogs appLogs = new AppLogs();
         public void createFile(string xmlDir)
         {
             string procesadoPath = Path.Combine(xmlDir, "Procesado");
@@ -102,7 +104,7 @@ namespace LecturaXMLPremium.ResourceFile
             }
             else
             {
-                Console.WriteLine("No se pudieron procesar los documentos.");
+                appLogs.add($"Error al mover el archivo . {jsonFilePath.Message}");
             }
         }
 

@@ -43,6 +43,7 @@ namespace ReadXMLPremium
         {
             try
             {
+                App.logs.add($"*********INICIA SERVICIO**********");
                 List<string[]> resultadosDoc = xmlData.getConfigTipoDocumentos(); 
                 if (resultadosDoc != null && resultadosDoc.Count > 0)
                 {
@@ -66,8 +67,7 @@ namespace ReadXMLPremium
                             switch (tipoDocumentoXML)
                             {
                                 case "1": // Factura
-                                case "2": // Nota de Crédito
-                                case "3": // Nota de Crédito
+                                
                                     helpers.createFile(documentoXML.FileURL); //Reviso que existan las carpetas de Procesado y Errores
                                     int CountXMLDir = helpers.readDirXML(documentoXML.FileURL);
                                     if (CountXMLDir > 0)
@@ -78,7 +78,40 @@ namespace ReadXMLPremium
                                         if (resultTask != null)
                                         {
                                             ApiResponse result = await resultTask;
-                                            helpers.FileMoved(result, FileURL); //Muevo los archivos
+                                            if (result.Success && result.Data != null && result.Data.Count > 0)
+                                            {
+                                                App.logs.add($"Api consumida correctamente----------");
+                                                helpers.FileMoved(result, FileURL); //Muevo los archivos
+                                            }
+                                            else
+                                            {
+                                                string jsonResult = JsonConvert.SerializeObject(result, Formatting.Indented);
+                                                App.logs.add($"No pudo ingresar los documentos correctamente, revisa JSON: {jsonResult}");
+                                            }
+                                        }
+                                    }
+                                    break;
+                                case "2": // Nota de Cargo
+                                case "3": // Nota de Crédito
+                                    helpers.createFile(documentoXML.FileURL); //Reviso que existan las carpetas de Procesado y Errores
+                                    int CountXMLDirNC = helpers.readDirXML(documentoXML.FileURL);
+                                    if (CountXMLDirNC > 0)
+                                    {
+                                        helpers.deleteFile(FileURL, "CLI.json"); //Elimino archivos JSON.
+                                        bool resFile = readFiles.ReadXML(documentoXML); //Logica de lectura
+                                        Task<ApiResponse> resultTask = resFile ? consumirAPI.PreparaConsumoAPIAsync(FileURL, "CLI", $"{App.config.dnsAPI}/NC") : null;
+                                        if (resultTask != null)
+                                        {
+                                            ApiResponse result = await resultTask;
+                                            if (result.Success && result.Data != null && result.Data.Count > 0)
+                                            {
+                                                helpers.FileMoved(result, FileURL); //Muevo los archivos
+                                            }
+                                            else
+                                            {
+                                                string jsonResult = JsonConvert.SerializeObject(result, Formatting.Indented);
+                                                App.logs.add($"No pudo ingresar los documentos correctamente, revisa JSON: {jsonResult}");
+                                            }
                                         }
                                     }
                                     break;
@@ -89,11 +122,19 @@ namespace ReadXMLPremium
                                     {
                                         helpers.deleteFile(FileURL, "CLI.json"); //Elimino archivos JSON.
                                         bool resFile = readFiles.ReadXMLPagos(documentoXML); //Logica de lectura
-                                        Task<ApiResponse> resultTask = resFile ? consumirAPI.PreparaConsumoAPIAsync(FileURL, "CLI",$"{App.config.dnsAPI}/Pago") : null;
+                                        Task<ApiResponse> resultTask = resFile ? consumirAPI.PreparaConsumoAPIAsync(FileURL, "CLI", $"{App.config.dnsAPI}/Pago") : null;
                                         if (resultTask != null)
                                         {
                                             ApiResponse result = await resultTask;
-                                            helpers.FileMoved(result, FileURL); //Muevo los archivos
+                                            if (result.Success && result.Data != null && result.Data.Count > 0)
+                                            {
+                                                helpers.FileMoved(result, FileURL); //Muevo los archivos
+                                            }
+                                            else
+                                            {
+                                                string jsonResult = JsonConvert.SerializeObject(result, Formatting.Indented);
+                                                App.logs.add($"No pudo ingresar los documentos correctamente, revisa JSON: {jsonResult}");
+                                            }
                                         }
                                     }
                                     break;
